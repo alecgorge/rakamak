@@ -13,7 +13,7 @@ public class SettingsHandler {
 	public File file;
 	public String name;
 	public String saveFile;
-	private HashMap<String, String> FileContents = new HashMap();
+	private HashMap<String, String> FileContents = new HashMap<String, String>();
 
 	public SettingsHandler(String resourcePath, String saveFile) {
 		this.saveFile = saveFile;
@@ -23,8 +23,7 @@ public class SettingsHandler {
 	private void create(String name) {
 		if (getClass().getResource(name) == null) {
 			Logger log = Logger.getLogger("Minecraft");
-			log.severe("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-			log.severe("asdddddddddddddddddddddddddddddddddddddddddddd");
+			log.severe("Couldn't load resource: " + name);
 			return;
 		}
 		InputStream input = getClass().getResourceAsStream(name);
@@ -133,7 +132,7 @@ public class SettingsHandler {
 	}
 
 	private HashMap<String, String> loadFileContents() {
-		HashMap result = new HashMap();
+		HashMap<String, String> result = new HashMap<String, String>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(this.file));
 			String word = null;

@@ -16,10 +16,17 @@
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-			 <directory>src</directory>
-			 <includes>
+				<directory>src</directory>
+				<includes>
 					 <include>plugin.yml</include>
-			 </includes>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/com/piwany/erwyn/rakamak</directory>
+				<includes>
+					 <include>Settings.properties</include>
+					 <include>Template.properties</include>
+				</includes>
 			</resource>
 		</resources>
 		<plugins>

@@ -8,23 +8,28 @@ import java.util.logging.Logger;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Rakamak extends JavaPlugin {
 	static String directory = "plugins/Rakamak/";
 	static File accounts = new File(directory + "users.rak");
+
 	public String logPrefix = "[Rakamak] ";
 	public Logger log = Logger.getLogger("Minecraft");
+
 	private final RakamakPlayerListener playerListener = new RakamakPlayerListener(this);
 	private final RakamakEntityListener entityListener = new RakamakEntityListener(this);
-	private final HashMap<Player, Location> unlogged = new HashMap();
-	public final HashMap<String, Boolean> pop = new HashMap();
-	public final HashMap<Player, Integer> essaie = new HashMap();
-	public final HashMap<String, Boolean> mode = new HashMap();
+	private final HashMap<Player, Location> unlogged = new HashMap<Player, Location>();
+
+	public final HashMap<String, Boolean> pop = new HashMap<String, Boolean>();
+	public final HashMap<Player, Integer> essaie = new HashMap<Player, Integer>();
+	public final HashMap<String, Boolean> mode = new HashMap<String, Boolean>();
+
 	public SettingsHandler settings;
 	public SettingsHandler templates;
-	public File pFolder = new File("plugins" + File.separator + "Rakamak");
+
+	public File pFolder = this.getDataFolder();
+
 	public int moveradius;
 	public boolean disabledchat;
 	public static String wrong_change = "";
@@ -98,8 +103,7 @@ public class Rakamak extends JavaPlugin {
 			this.log.warning(this.logPrefix + "Check Templates.properties");
 		}
 
-		PluginManager pm = getServer().getPluginManager();
-		System.out.println("[Rakamak] Rakamak activation... Security is yours");
+		System.out.println("[Rakamak] Rakamak has been activated. Security is yours.");
 
 		new File(directory).mkdir();
 
