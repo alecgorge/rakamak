@@ -4,7 +4,7 @@ Rakamak is a plugin to secure a server, even when `online-mode` is set to `false
 
 This plugin was original authors by Erwyn and Dorpaxio, but they have long since abandoned the project (last update was on 8/12/2011).
 
-I (alecgorge) have update this plugin to work with 1.1-r6 and 1.2-R0.2 and hopefully will add some more features as requested.
+I (alecgorge) have updated this plugin to work with 1.1-r6 and 1.2-R0.2 and hopefully will add some more features as requested.
 
 ## Download
 
