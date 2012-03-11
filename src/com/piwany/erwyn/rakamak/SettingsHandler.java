@@ -21,12 +21,12 @@ public class SettingsHandler {
 	}
 
 	private void create(String name) {
-		if (getClass().getResource(name) == null) {
+		if (getClass().getClassLoader().getResource(name) == null) {
 			Logger log = Logger.getLogger("Minecraft");
 			log.severe("Couldn't load resource: " + name);
 			return;
 		}
-		InputStream input = getClass().getResourceAsStream(name);
+		InputStream input = getClass().getClassLoader().getResourceAsStream(name);
 		if (input != null) {
 			FileOutputStream output = null;
 			try {
@@ -73,7 +73,7 @@ public class SettingsHandler {
 		}
 
 		this.FileContents = loadFileContents();
-		return Boolean.valueOf(true);
+		return true;
 	}
 
 	public String getPropertyString(String property) {

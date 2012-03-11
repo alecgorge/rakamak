@@ -28,7 +28,7 @@ public class Rakamak extends JavaPlugin {
 	public SettingsHandler settings;
 	public SettingsHandler templates;
 
-	public File pFolder = this.getDataFolder();
+	public File pFolder = new File("plugins" + File.separator + "Rakamak");
 
 	public int moveradius;
 	public boolean disabledchat;
@@ -49,7 +49,7 @@ public class Rakamak extends JavaPlugin {
 	public String already_password = "";
 
 	public void onDisable() {
-		System.out.println("[Rakamak] Rakamak plugin disabled.");
+		System.out.println(this.logPrefix + "Rakamak plugin disabled.");
 	}
 
 	public void onEnable() {
@@ -103,23 +103,21 @@ public class Rakamak extends JavaPlugin {
 			this.log.warning(this.logPrefix + "Check Templates.properties");
 		}
 
-		System.out.println("[Rakamak] Rakamak has been activated. Security is yours.");
-
 		new File(directory).mkdir();
 
 		if (!accounts.exists()) {
 			try {
 				accounts.createNewFile();
 			} catch (IOException e) {
-				System.out.println("Problem while trying to create file...");
+				System.out.println(this.logPrefix + "Problem while trying to create file...");
 				e.printStackTrace();
-				System.out.println("End of stackTrace");
+				System.out.println(this.logPrefix + "End of stackTrace");
 			}
 
 		}
 
 		PluginDescriptionFile pdf = getDescription();
-		System.out.println(pdf.getName() + " version " + pdf.getVersion() + " is enabled." + " Plugin provided by " + pdf.getAuthors());
+		System.out.println(this.logPrefix + pdf.getName() + " version " + pdf.getVersion() + " is enabled." + " Plugin provided by " + pdf.getAuthors());
 
 		getServer().getPluginManager().registerEvents(this.playerListener, this);
 		getServer().getPluginManager().registerEvents(this.entityListener, this);

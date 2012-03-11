@@ -1,9 +1,9 @@
 name: Rakamak
 main: com.piwany.erwyn.rakamak.Rakamak
-version: 3.6.1
+version: 4.0.0
 website: http://www.odyocraft.fr
 description: Provides authentication possibilities with online-mode = false
-authors: [Erwyn & Dorpaxio]
+authors: [alecgorge, Erwyn & Dorpaxio]
 commands:
   register:
     description: Set your password.
